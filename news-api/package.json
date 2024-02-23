@@ -24,6 +24,7 @@
         "css-loader": "^6.10.0",
         "dotenv-webpack": "^8.0.1",
         "eslint": "^8.56.0",
+        "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-import": "^2.29.1",
@@ -38,5 +39,8 @@
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^5.0.0",
         "webpack-merge": "^5.10.0"
+    },
+    "dependencies": {
+        "eslint-config-airbnb-typescript": "^17.1.0"
     }
 }
