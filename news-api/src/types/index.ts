@@ -28,3 +28,9 @@ export const createElement = <T extends keyof HTMLElementTagNameMap>(
   element.classList.add(...classNames);
   return element;
 };
+
+export interface ProcessEnv {
+  [key: string]: string | undefined;
+  API_URL: string | undefined;
+  API_KEY: string | undefined;
+}
