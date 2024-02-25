@@ -30,12 +30,6 @@ export const createElement = <T extends keyof HTMLElementTagNameMap>(
   return element;
 };
 
-export interface ProcessEnv {
-  [key: string]: string | undefined;
-  API_URL: string | undefined;
-  API_KEY: string | undefined;
-}
-
 // type UserViewModel = Pick<User, 'name' | 'age'>;
 
 export type MethodCallback<T> = (data?: T) => void;

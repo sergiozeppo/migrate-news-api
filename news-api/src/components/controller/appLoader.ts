@@ -1,18 +1,11 @@
-import { ProcessEnv } from '../../types/index';
 import Loader from './loader';
 
-class AppLoader extends Loader implements ProcessEnv {
+class AppLoader extends Loader {
   constructor() {
     super(process.env.API_URL, {
-      apiKey: process.env.API_KEY,
+      apiKey: process.env.API_KEY as string,
     });
   }
-
-  [key: string]: string | undefined;
-
-  public API_URL: string | undefined;
-
-  public API_KEY: string | undefined;
 }
 
 export default AppLoader;
