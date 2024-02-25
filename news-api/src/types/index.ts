@@ -37,3 +37,16 @@ export interface ProcessEnv {
 }
 
 // type UserViewModel = Pick<User, 'name' | 'age'>;
+
+export type MethodCallback<T> = (data?: T) => void;
+
+export enum StatusResp {
+  'ok' = 'ok',
+  'error' = 'error',
+}
+
+export interface ResponseAPI {
+  status: StatusResp;
+  code: string;
+  message: string;
+}
