@@ -34,6 +34,10 @@ export const createElement = <T extends keyof HTMLElementTagNameMap>(
 
 export type MethodCallback<T> = (data?: T) => void;
 
+export function typeDef<T>(value: T): asserts value is NonNullable<T> {
+  if (!value) throw new Error(`${value} is not defined`);
+}
+
 export enum StatusResp {
   'ok' = 'ok',
   'error' = 'error',

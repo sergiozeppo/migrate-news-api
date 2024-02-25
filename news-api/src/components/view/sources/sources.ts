@@ -3,7 +3,7 @@ import './sources.css';
 
 class Sources {
   public draw(data: NewsItemSource[]): void {
-    const fragment: DocumentFragment = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment();
     const sourceItemTemp: Element | null = document.querySelector('#sourceItemTemp');
 
     data.forEach((item: NewsItemSource) => {

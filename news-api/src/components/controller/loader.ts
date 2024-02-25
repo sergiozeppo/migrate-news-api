@@ -11,7 +11,7 @@ class Loader {
   }
 
   public getResp(
-    { endpoint, options = {} }: { endpoint: Record<string, string>; options: Record<string, string> },
+    { endpoint, options = {} }: { endpoint: string; options?: Record<string, string> },
     callback = (): void => {
       console.error('No callback for GET response');
     },
@@ -28,7 +28,7 @@ class Loader {
     return res;
   }
 
-  private makeUrl(options: Record<string, string>, endpoint: Record<string, string>): string {
+  private makeUrl(options: Record<string, string>, endpoint: string): string {
     const urlOptions = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
@@ -39,7 +39,7 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  private load<T>(method: string, endpoint: Record<string, string>, callback: MethodCallback<T>, options = {}): void {
+  private load<T>(method: string, endpoint: string, callback: MethodCallback<T>, options = {}): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
