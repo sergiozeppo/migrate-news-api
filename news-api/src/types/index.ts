@@ -18,6 +18,7 @@ export interface NewsAPIResponse {
   status: 'ok' | 'error';
   totalResults: number;
   articles: NewsItem[];
+  sources: NewsItemSource[];
 }
 
 export const createElement = <T extends keyof HTMLElementTagNameMap>(
@@ -34,3 +35,5 @@ export interface ProcessEnv {
   API_URL: string | undefined;
   API_KEY: string | undefined;
 }
+
+// type UserViewModel = Pick<User, 'name' | 'age'>;
