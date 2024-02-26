@@ -18,7 +18,97 @@ export interface NewsAPIResponse {
   status: 'ok' | 'error';
   totalResults: number;
   articles: NewsItem[];
-  sources: NewsItemSource[];
+}
+
+type Categories = 'business' | 'entertainment' | 'general' | 'health' | 'science' | 'sports' | 'technology';
+
+enum Languages {
+  ar,
+  de,
+  en,
+  es,
+  fr,
+  he,
+  it,
+  nl,
+  no,
+  pt,
+  ru,
+  sv,
+  ud,
+  zh,
+}
+
+enum Countries {
+  ae,
+  ar,
+  at,
+  au,
+  be,
+  bg,
+  br,
+  ca,
+  ch,
+  cn,
+  co,
+  cu,
+  cz,
+  de,
+  eg,
+  fr,
+  gb,
+  gr,
+  hk,
+  hu,
+  id,
+  ie,
+  il,
+  in,
+  it,
+  jp,
+  kr,
+  lt,
+  lv,
+  ma,
+  mx,
+  my,
+  ng,
+  nl,
+  no,
+  nz,
+  ph,
+  pl,
+  pt,
+  ro,
+  rs,
+  ru,
+  sa,
+  se,
+  sg,
+  si,
+  sk,
+  th,
+  tr,
+  tw,
+  ua,
+  us,
+  ve,
+  za,
+}
+
+export interface SourceItem {
+  id: string;
+  name: string;
+  description: string;
+  url: string;
+  category: Categories;
+  language: Languages;
+  country: Countries;
+}
+
+export interface SourceResponse {
+  status: 'ok' | 'error';
+  sources: SourceItem[];
 }
 
 export const createElement = <T extends keyof HTMLElementTagNameMap>(
@@ -29,8 +119,6 @@ export const createElement = <T extends keyof HTMLElementTagNameMap>(
   element.classList.add(...classNames);
   return element;
 };
-
-// type UserViewModel = Pick<User, 'name' | 'age'>;
 
 export type MethodCallback<T> = (data?: T) => void;
 
