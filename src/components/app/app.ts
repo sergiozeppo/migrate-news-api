@@ -1,11 +1,11 @@
-import { NewsItem } from '../../types/index';
+import { NewsAPIResponse, SourceResponse } from '../../types/index';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
 class App {
-  public controller: AppController;
+  private controller: AppController;
 
-  public view: AppView;
+  private view: AppView;
 
   constructor() {
     this.controller = new AppController();
@@ -14,11 +14,16 @@ class App {
 
   public start(): void {
     const sourcesDoc = document.querySelector('.sources');
+    console.log(sourcesDoc);
     if (sourcesDoc)
       sourcesDoc.addEventListener('click', (e) =>
-        this.controller.getNews(e, (data: NewsItem) => this.view.drawNews(data)),
+        this.controller.getNews<NewsAPIResponse>(e, (data) => {
+          if (data) this.view.drawNews(data);
+        }),
       );
-    this.controller.getSources((data) => this.view.drawSources(data));
+    this.controller.getSources<SourceResponse>((data) => {
+      if (data) this.view.drawSources(data);
+    });
   }
 }
 
