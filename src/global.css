@@ -1,35 +1,57 @@
 body {
-    color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+  color: #fff;
+  background: #17181c;
+  font-family: sans-serif;
 }
 
 header {
-    padding: 10px 30px;
+  padding: 10px 30px;
 }
 
 header h1 {
-    font-size: 40px;
-    font-weight: 800;
+  font-size: 40px;
+  font-weight: 800;
 }
 
 footer {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  height: 100px;
+  padding: 15px 60px 15px 20px;
+  align-items: flex-end;
+  gap: 20px;
+  justify-content: space-between;
+}
+svg {
+  stroke: none;
+  fill: #fff;
+  fill-opacity: 1;
+}
+.footer-link {
+  display: flex;
+}
+.footer-icon {
+  display: block;
+  height: 30px;
+}
+.footer-icon-github {
+  width: 30px;
+  background: center center no-repeat url('/img/github.svg');
+}
+.footer-icon-rsschool {
+  width: 90px;
+  background: center center no-repeat url('/img/rsschool.svg');
 }
 footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
 }
 footer .copyright a {
-    color: #444;
+  color: #444;
 }
 footer .copyright a:hover {
-    color: #555;
+  color: #555;
 }
 footer .copyright:before {
-    content: '©';
+  content: '©';
 }
