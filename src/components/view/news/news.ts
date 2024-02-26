@@ -5,10 +5,9 @@ class News {
   public draw(data: NewsItem[]): void {
     const news = data.length >= 10 ? data.filter((_item, idx: number) => idx < 10) : data;
     const fragment = document.createDocumentFragment();
-    const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLElement;
+    const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
     news.forEach((item: NewsItem, idx: number) => {
-      const newsClone = newsItemTemp as HTMLTemplateElement;
-      newsClone.content.cloneNode(true) as HTMLElement;
+      const newsClone = newsItemTemp.content.cloneNode(true) as Element;
       if (idx % 2) {
         const newsItem: Element | null = newsClone.querySelector('.news__item');
         if (newsItem) newsItem.classList.add('alt');
@@ -30,11 +29,9 @@ class News {
 
       fragment.append(newsClone);
     });
-    const newsClass: Element | null = document.querySelector('.news');
-    if (newsClass) {
-      newsClass.innerHTML = '';
-      newsClass.appendChild(fragment);
-    }
+    const newsClass = document.querySelector('.news') as Element;
+    newsClass.innerHTML = '';
+    newsClass.appendChild(fragment);
   }
 }
 
