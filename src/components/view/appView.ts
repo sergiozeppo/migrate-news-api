@@ -1,8 +1,8 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { NewsItem, NewsAPIResponse } from '../../types/index';
+import { NewsAPIResponse, SourceResponse } from '../../types/index';
 
-export class AppView implements AppView {
+export class AppView {
   public news: News;
 
   public sources: Sources;
@@ -12,12 +12,13 @@ export class AppView implements AppView {
     this.sources = new Sources();
   }
 
-  public drawNews(data: Partial<NewsItem & NewsAPIResponse>): void {
+  public drawNews(data: NewsAPIResponse): void {
     const values = data?.articles ? data?.articles : [];
-    if (values && this.news) this.news.draw(values);
+    console.log(values);
+    this.news.draw(values);
   }
 
-  public drawSources(data: Partial<NewsItem & NewsAPIResponse>): void {
+  public drawSources(data: SourceResponse): void {
     const values = data?.sources ? data?.sources : [];
     if (values && this.sources) this.sources.draw(values);
   }
