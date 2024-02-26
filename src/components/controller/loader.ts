@@ -16,7 +16,7 @@ class Loader {
       console.error('No callback for GET response');
     },
   ): void {
-    this.load('GET', endpoint, callback, options);
+    this.load<string>('GET', endpoint, callback, options);
   }
 
   private errorHandler(res: Response): Response {
@@ -35,15 +35,14 @@ class Loader {
     Object.keys(urlOptions).forEach((index) => {
       url += `${index}=${urlOptions[index]}&`;
     });
-
     return url.slice(0, -1);
   }
 
-  private load<T>(method: string, endpoint: string, callback: MethodCallback<T>, options = {}): void {
+  private load<NewsItem>(method: string, endpoint: string, callback: MethodCallback<NewsItem>, options = {}): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
-      .then((data) => callback(data))
+      .then((data: NewsItem) => callback(data))
       .catch((err) => console.error(err));
   }
 }
